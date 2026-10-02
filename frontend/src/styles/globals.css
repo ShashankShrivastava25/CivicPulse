@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 246 247 251; --surface: 255 255 255; --sunken: 238 240 247;
+  --fg: 23 25 38; --muted: 98 104 125; --line: 222 225 236;
+  --primary: 67 56 202; --primary-fg: 255 255 255; --primary-soft: 235 233 253;
+  --accent: 15 118 110; --accent-soft: 221 244 240;
+  --success: 21 128 61; --warning: 180 83 9; --danger: 185 28 28; --info: 29 78 216;
+  --shadow: 20 22 40;
+}
+.dark {
+  --bg: 14 15 22; --surface: 22 24 34; --sunken: 29 31 43;
+  --fg: 236 238 246; --muted: 150 156 178; --line: 44 47 64;
+  --primary: 138 148 255; --primary-fg: 14 15 30; --primary-soft: 36 38 74;
+  --accent: 64 208 190; --accent-soft: 18 52 52;
+  --success: 74 222 128; --warning: 251 191 36; --danger: 248 113 113; --info: 125 170 255;
+  --shadow: 0 0 0;
+}
+html { color-scheme: light; }
+html.dark { color-scheme: dark; }
+body { @apply bg-bg font-sans text-fg antialiased; }
+:focus-visible { outline: 2px solid rgb(var(--primary)); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
