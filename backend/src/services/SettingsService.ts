@@ -59,12 +59,32 @@ async function load<T extends object>(key: string, defaults: T): Promise<T> {
   return merged;
 }
 
-function mergeDeep<T extends object>(base: T, over: Record<string, unknown>): T {
-  const out: Record<string, unknown> = { ...base };
+function mergeDeep<T extends object>(
+  base: T,
+  over: Record<string, unknown>,
+): T {
+  const out = { ...base } as Record<string, unknown>;
+
   for (const [k, v] of Object.entries(over ?? {})) {
-    const b = (base as Record<string, unknown>)[k];
-    out[k] = b && typeof b === 'object' && !Array.isArray(b) && v && typeof v === 'object' ? mergeDeep(b as object, v as Record<string, unknown>) : v;
+    const b = out[k];
+
+    if (
+      b &&
+      typeof b === "object" &&
+      !Array.isArray(b) &&
+      v &&
+      typeof v === "object" &&
+      !Array.isArray(v)
+    ) {
+      out[k] = mergeDeep(
+        b as Record<string, unknown>,
+        v as Record<string, unknown>,
+      );
+    } else {
+      out[k] = v;
+    }
   }
+
   return out as T;
 }
 
