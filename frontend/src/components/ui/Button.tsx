@@ -3,8 +3,8 @@ import { Loader2 } from 'lucide-react';
 import { cn } from '@/utils/cn';
 
 const variants = {
-  primary: 'bg-primary text-primary-fg hover:opacity-90',
-  secondary: 'border border-line bg-surface text-fg hover:bg-sunken',
+  primary: 'border border-fg bg-primary-soft text-fg hover:bg-[rgb(230_196_250)] dark:border-transparent dark:bg-primary dark:text-primary-fg dark:hover:bg-primary dark:hover:opacity-90',
+  secondary: 'border border-fg bg-transparent text-fg hover:bg-sunken dark:border-line dark:bg-surface',
   ghost: 'text-fg hover:bg-sunken',
   danger: 'bg-danger text-white hover:opacity-90',
 };

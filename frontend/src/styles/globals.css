@@ -2,14 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ───────── LIGHT THEME (VitalVaidya-inspired: cream page, white cards, lavender CTA, deep-green accent) ───────── */
 :root {
-  --bg: 246 247 251; --surface: 255 255 255; --sunken: 238 240 247;
-  --fg: 23 25 38; --muted: 98 104 125; --line: 222 225 236;
-  --primary: 67 56 202; --primary-fg: 255 255 255; --primary-soft: 235 233 253;
-  --accent: 15 118 110; --accent-soft: 221 244 240;
-  --success: 21 128 61; --warning: 180 83 9; --danger: 185 28 28; --info: 29 78 216;
-  --shadow: 20 22 40;
+  --bg: 255 255 235; --surface: 255 255 255; --sunken: 244 244 229;
+  --fg: 26 26 26; --muted: 95 95 89; --line: 228 228 208;
+  --primary: 3 79 70; --primary-fg: 255 255 255; --primary-soft: 240 215 255;
+  --accent: 67 125 118; --accent-soft: 229 237 236;
+  --success: 4 120 87; --warning: 180 83 9; --danger: 154 43 43; --info: 29 78 216;
+  --shadow: 60 60 30;
+
+  --radius: 14px; --radius-lg: 24px;
+  --font-sans: var(--f-inter), system-ui, sans-serif;
+  --font-display: var(--f-serif), Georgia, serif;
+  --cta: 240 215 255; --cta-hover: 230 196 250; --cta-fg: 26 26 26;
+
+  /* remap of Tailwind's hard-coded gray / blue (used by citizen pages) to the theme */
+  --gray-50: 255 255 235; --gray-100: 244 244 229; --gray-200: 228 228 208; --gray-300: 211 211 190;
+  --gray-400: 168 168 158; --gray-500: 138 138 128; --gray-600: 95 95 89; --gray-700: 70 70 64;
+  --gray-800: 40 40 36; --gray-900: 26 26 26;
+  --blue-50: 248 240 255; --blue-100: 240 215 255; --blue-200: 221 196 240; --blue-300: 184 164 210;
+  --blue-400: 67 125 118; --blue-500: 3 79 70; --blue-600: 3 79 70; --blue-700: 2 62 55;
+  --blue-800: 2 62 55; --blue-900: 2 50 44;
 }
+/* Dark theme: unchanged values (plus the original radius / font / gray / blue values so nothing shifts) */
 .dark {
   --bg: 14 15 22; --surface: 22 24 34; --sunken: 29 31 43;
   --fg: 236 238 246; --muted: 150 156 178; --line: 44 47 64;
@@ -17,9 +32,40 @@
   --accent: 64 208 190; --accent-soft: 18 52 52;
   --success: 74 222 128; --warning: 251 191 36; --danger: 248 113 113; --info: 125 170 255;
   --shadow: 0 0 0;
+
+  --radius: 6px; --radius-lg: 10px;
+  --font-sans: var(--f-public), system-ui, sans-serif;
+  --font-display: var(--f-fraunces), Georgia, serif;
+
+  --gray-50: 249 250 251; --gray-100: 243 244 246; --gray-200: 229 231 235; --gray-300: 209 213 219;
+  --gray-400: 156 163 175; --gray-500: 107 114 128; --gray-600: 75 85 99; --gray-700: 55 65 81;
+  --gray-800: 31 41 55; --gray-900: 17 24 39;
+  --blue-50: 239 246 255; --blue-100: 219 234 254; --blue-200: 191 219 254; --blue-300: 147 197 253;
+  --blue-400: 96 165 250; --blue-500: 59 130 246; --blue-600: 37 99 235; --blue-700: 29 78 216;
+  --blue-800: 30 64 175; --blue-900: 30 58 138;
 }
 html { color-scheme: light; }
 html.dark { color-scheme: dark; }
 body { @apply bg-bg font-sans text-fg antialiased; }
 :focus-visible { outline: 2px solid rgb(var(--primary)); outline-offset: 2px; }
+
+/* ───────── Light-only refinements ───────── */
+/* soft pink glow behind the page, as in the reference hero */
+html:not(.dark) body {
+  background-image: radial-gradient(60rem 42rem at -8% 18%, rgb(250 230 244 / 0.55), transparent 60%);
+  background-repeat: no-repeat;
+}
+/* serif display headings are regular weight in the reference */
+html:not(.dark) .font-display { font-weight: 400; letter-spacing: -0.01em; }
+/* active sidebar item: lavender pill + green left bar */
+html:not(.dark) nav[aria-label="Sidebar"] a[aria-current="page"] { box-shadow: inset 4px 0 0 rgb(var(--primary)); color: rgb(var(--fg)); }
+/* hard-coded blue "primary" buttons on citizen pages → lavender CTA with dark outline */
+html:not(.dark) .bg-blue-600.text-white:not(:disabled) {
+  background-color: rgb(var(--cta)); color: rgb(var(--cta-fg)); border: 1px solid rgb(var(--cta-fg));
+}
+html:not(.dark) .bg-blue-600.text-white:not(:disabled):hover { background-color: rgb(var(--cta-hover)); }
+html:not(.dark) .bg-green-600.text-white:not(:disabled) { background-color: rgb(var(--primary)); }
+html:not(.dark) .bg-green-600.text-white:not(:disabled):hover { background-color: rgb(2 62 55); }
+html:not(.dark) .bg-gray-50.min-h-screen, html:not(.dark) .min-h-screen.bg-gray-50 { background-color: transparent; }
+
 @media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
