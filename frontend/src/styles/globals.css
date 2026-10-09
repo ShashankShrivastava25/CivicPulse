@@ -5,7 +5,7 @@
 /* ───────── LIGHT THEME (VitalVaidya-inspired: cream page, white cards, lavender CTA, deep-green accent) ───────── */
 :root {
   --bg: 255 255 235; --surface: 255 255 255; --sunken: 244 244 229;
-  --fg: 26 26 26; --muted: 95 95 89; --line: 228 228 208;
+  --fg: 6 6 6; --muted: 48 48 43; --line: 228 228 208;
   --primary: 3 79 70; --primary-fg: 255 255 255; --primary-soft: 240 215 255;
   --accent: 67 125 118; --accent-soft: 229 237 236;
   --success: 4 120 87; --warning: 180 83 9; --danger: 154 43 43; --info: 29 78 216;
@@ -14,36 +14,62 @@
   --radius: 14px; --radius-lg: 24px;
   --font-sans: var(--f-inter), system-ui, sans-serif;
   --font-display: var(--f-serif), Georgia, serif;
-  --cta: 240 215 255; --cta-hover: 230 196 250; --cta-fg: 26 26 26;
+  --cta: 240 215 255; --cta-hover: 230 196 250; --cta-fg: 6 6 6;
 
   /* remap of Tailwind's hard-coded gray / blue (used by citizen pages) to the theme */
   --gray-50: 255 255 235; --gray-100: 244 244 229; --gray-200: 228 228 208; --gray-300: 211 211 190;
-  --gray-400: 168 168 158; --gray-500: 138 138 128; --gray-600: 95 95 89; --gray-700: 70 70 64;
-  --gray-800: 40 40 36; --gray-900: 26 26 26;
+  --gray-400: 110 110 102; --gray-500: 82 82 76; --gray-600: 48 48 43; --gray-700: 36 36 32;
+  --gray-800: 20 20 18; --gray-900: 6 6 6;
   --blue-50: 248 240 255; --blue-100: 240 215 255; --blue-200: 221 196 240; --blue-300: 184 164 210;
   --blue-400: 67 125 118; --blue-500: 3 79 70; --blue-600: 3 79 70; --blue-700: 2 62 55;
   --blue-800: 2 62 55; --blue-900: 2 50 44;
 }
-/* Dark theme: unchanged values (plus the original radius / font / gray / blue values so nothing shifts) */
+/* ───────── DARK THEME: Navy & Electric Violet ─────────
+   bg #0B1020 · secondary #11172A · card #171C35 · elevated #202744 · hover #292F4D · nav #0E1426
+   violet #8B5CF6 (hover #7C3AED, light #C4B5FD, soft #251D45, border #49366F) · focus #A78BFA
+   text #F8FAFC / #CBD0E0 / #929BB3 / #626C84 · border #29314A · strong border #3B4563 */
 .dark {
-  --bg: 14 15 22; --surface: 22 24 34; --sunken: 29 31 43;
-  --fg: 236 238 246; --muted: 150 156 178; --line: 44 47 64;
-  --primary: 138 148 255; --primary-fg: 14 15 30; --primary-soft: 36 38 74;
-  --accent: 64 208 190; --accent-soft: 18 52 52;
-  --success: 74 222 128; --warning: 251 191 36; --danger: 248 113 113; --info: 125 170 255;
+  --bg: 11 16 32;                 /* #0B1020 main background */
+  --surface: 23 28 53;            /* #171C35 cards */
+  --sunken: 41 47 77;             /* #292F4D hover surface */
+  --fg: 248 250 252;              /* #F8FAFC primary text */
+  --muted: 203 208 224;           /* #CBD0E0 secondary text */
+  --line: 41 49 74;               /* #29314A default border */
+  --primary: 139 92 246;          /* #8B5CF6 electric violet */
+  --primary-fg: 255 255 255;
+  --primary-soft: 37 29 69;       /* #251D45 selected / soft violet */
+  --accent: 196 181 253;          /* #C4B5FD light violet highlight */
+  --accent-soft: 37 29 69;
+  --success: 94 214 156; --warning: 240 190 90; --danger: 248 113 133; --info: 96 165 250;
   --shadow: 0 0 0;
+
+  /* extra dark-only tokens */
+  --bg-2: 17 23 42;               /* #11172A secondary background / inputs */
+  --nav: 14 20 38;                /* #0E1426 sidebar, navbar, footer */
+  --elevated: 32 39 68;           /* #202744 modals, menus, popovers */
+  --muted-2: 146 155 179;         /* #929BB3 muted text */
+  --disabled: 98 108 132;         /* #626C84 disabled text */
+  --line-strong: 59 69 99;        /* #3B4563 strong border */
+  --input-line: 52 61 89;         /* #343D59 input border */
+  --violet-line: 73 54 111;       /* #49366F subtle violet border */
+  --violet-light: 196 181 253;    /* #C4B5FD violet text on dark */
+  --primary-hover: 124 58 237;    /* #7C3AED */
+  --focus: 167 139 250;           /* #A78BFA focus ring */
 
   --radius: 6px; --radius-lg: 10px;
   --font-sans: var(--f-public), system-ui, sans-serif;
   --font-display: var(--f-fraunces), Georgia, serif;
 
-  --gray-50: 249 250 251; --gray-100: 243 244 246; --gray-200: 229 231 235; --gray-300: 209 213 219;
-  --gray-400: 156 163 175; --gray-500: 107 114 128; --gray-600: 75 85 99; --gray-700: 55 65 81;
-  --gray-800: 31 41 55; --gray-900: 17 24 39;
-  --blue-50: 239 246 255; --blue-100: 219 234 254; --blue-200: 191 219 254; --blue-300: 147 197 253;
-  --blue-400: 96 165 250; --blue-500: 59 130 246; --blue-600: 37 99 235; --blue-700: 29 78 216;
-  --blue-800: 30 64 175; --blue-900: 30 58 138;
+  /* remap of Tailwind's hard-coded gray / blue (citizen pages) onto the navy / violet palette */
+  --gray-50: 17 23 42; --gray-100: 32 39 68; --gray-200: 41 49 74; --gray-300: 59 69 99;
+  --gray-400: 146 155 179; --gray-500: 146 155 179; --gray-600: 203 208 224; --gray-700: 203 208 224;
+  --gray-800: 226 232 240; --gray-900: 248 250 252;
+  --blue-50: 37 29 69; --blue-100: 45 36 84; --blue-200: 73 54 111; --blue-300: 139 92 246;
+  --blue-400: 167 139 250; --blue-500: 167 139 250; --blue-600: 139 92 246; --blue-700: 124 58 237;
+  --blue-800: 109 40 217; --blue-900: 248 250 252;
 }
+/* light theme: slightly heavier body text for crisper reading (variable Inter supports 490) */
+html:not(.dark) body { font-weight: 490; }
 html { color-scheme: light; }
 html.dark { color-scheme: dark; }
 body { @apply bg-bg font-sans text-fg antialiased; }
@@ -67,5 +93,142 @@ html:not(.dark) .bg-blue-600.text-white:not(:disabled):hover { background-color:
 html:not(.dark) .bg-green-600.text-white:not(:disabled) { background-color: rgb(var(--primary)); }
 html:not(.dark) .bg-green-600.text-white:not(:disabled):hover { background-color: rgb(2 62 55); }
 html:not(.dark) .bg-gray-50.min-h-screen, html:not(.dark) .min-h-screen.bg-gray-50 { background-color: transparent; }
+
+/* ───────── Dark-only refinements (Navy & Electric Violet) ───────── */
+/* restrained violet glow behind the page */
+html.dark body {
+  background-image: radial-gradient(circle 42rem at 85% -6%, rgb(139 92 246 / 0.12) 0%, transparent 70%);
+  background-repeat: no-repeat;
+}
+.dark ::selection { background: rgb(var(--primary) / 0.35); color: rgb(var(--fg)); }
+.dark { scrollbar-color: rgb(var(--line-strong)) rgb(var(--bg)); }
+.dark ::-webkit-scrollbar { width: 10px; height: 10px; }
+.dark ::-webkit-scrollbar-track { background: rgb(var(--bg)); }
+.dark ::-webkit-scrollbar-thumb { background: rgb(var(--line-strong)); border-radius: 9999px; border: 2px solid rgb(var(--bg)); }
+.dark ::-webkit-scrollbar-thumb:hover { background: rgb(var(--primary)); }
+
+/* smooth interactive transitions (zero specificity so component classes still win) */
+:where(.dark) :where(a, button, input, select, textarea, summary, [role="menuitem"]) {
+  transition-property: color, background-color, border-color, box-shadow, opacity;
+  transition-duration: 150ms; transition-timing-function: ease;
+}
+
+/* focus ring */
+.dark :focus-visible { outline: 2px solid rgb(var(--focus)); outline-offset: 2px; }
+.dark input:focus-visible:not([aria-invalid="true"]):not([type="checkbox"]):not([type="radio"]),
+.dark select:focus-visible:not([aria-invalid="true"]),
+.dark textarea:focus-visible:not([aria-invalid="true"]) {
+  border-color: rgb(var(--focus)); box-shadow: 0 0 0 3px rgb(var(--focus) / 0.25);
+}
+
+/* inputs, selects, textareas, dropdown options */
+.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="hidden"]):not([type="submit"]):not([type="button"]),
+.dark select, .dark textarea {
+  background-color: rgb(var(--bg-2)); color: rgb(var(--fg));
+}
+.dark input.border-line, .dark select.border-line, .dark textarea.border-line { border-color: rgb(var(--input-line)); }
+.dark input:disabled, .dark select:disabled, .dark textarea:disabled {
+  background-color: rgb(var(--bg-2) / 0.6); color: rgb(var(--disabled)); cursor: not-allowed;
+}
+.dark input:not([type="checkbox"]):not([type="radio"]):hover:not(:disabled),
+.dark select:hover:not(:disabled), .dark textarea:hover:not(:disabled) { border-color: rgb(var(--line-strong)); }
+.dark ::placeholder { color: rgb(var(--muted-2)); opacity: 1; }
+.dark select option, .dark select optgroup { background-color: rgb(var(--bg-2)); color: rgb(var(--fg)); }
+.dark input[type="checkbox"], .dark input[type="radio"], .dark input[type="range"] { accent-color: rgb(var(--primary)); }
+.dark input:-webkit-autofill, .dark textarea:-webkit-autofill, .dark select:-webkit-autofill {
+  -webkit-text-fill-color: rgb(var(--fg)); caret-color: rgb(var(--fg));
+  -webkit-box-shadow: 0 0 0 1000px rgb(var(--bg-2)) inset; box-shadow: 0 0 0 1000px rgb(var(--bg-2)) inset;
+}
+
+/* violet used as text must be the lighter violet to stay readable on navy */
+.dark .text-primary, .dark .hover\:text-primary:hover,
+.dark .text-blue-600, .dark .text-blue-700, .dark .text-blue-800,
+.dark .hover\:text-blue-700:hover { color: rgb(var(--violet-light)); }
+.dark a:not([class]) { color: rgb(var(--violet-light)); text-decoration: underline; text-underline-offset: 3px; }
+.dark a:not([class]):hover { color: rgb(var(--fg)); }
+
+/* layered navy: nav / sidebar / footer are the deepest layer, alternate sections one step lighter */
+.dark aside.bg-surface, .dark footer.bg-surface { background-color: rgb(var(--nav)); }
+.dark header.sticky { background-color: rgb(var(--nav) / 0.88); }
+.dark section.bg-surface { background-color: rgb(var(--bg-2)); }
+
+/* active navigation: soft violet fill + subtle violet border + accent bar (not colour alone) */
+.dark nav[aria-label="Sidebar"] a[aria-current="page"] {
+  color: rgb(var(--violet-light));
+  box-shadow: inset 0 0 0 1px rgb(var(--violet-line)), inset 3px 0 0 rgb(var(--primary));
+}
+
+/* menus, modals, popovers, toasts: elevated layer */
+.dark .shadow-pop { background-color: rgb(var(--elevated)); box-shadow: 0 12px 32px rgb(0 0 0 / 0.45); }
+.dark [role="menu"], .dark [role="alertdialog"], .dark [role="dialog"], .dark [role="tooltip"], .dark [role="listbox"] {
+  border-color: rgb(var(--line-strong));
+}
+.dark [role="tooltip"] { background-color: rgb(var(--elevated)); color: rgb(var(--fg)); }
+.dark .bg-black\/40 { background-color: rgb(11 16 32 / 0.75); }
+.dark .shadow-card { box-shadow: 0 1px 2px rgb(0 0 0 / 0.25); }
+
+/* landing hero headline: lighter weight in dark (Fraunces is a variable font) */
+.dark #home h1 { font-weight: 400; letter-spacing: -0.01em; }
+
+/* primary call-to-action band → violet gradient */
+.dark .bg-primary.text-primary-fg.py-12 { background-image: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%); }
+
+/* hard-coded white surfaces (citizen pages) → navy card surface */
+.dark .bg-white { background-color: rgb(var(--surface)); }
+.dark .bg-gray-50.min-h-screen, .dark .min-h-screen.bg-gray-50 { background-color: rgb(var(--bg)); }
+.dark .hover\:bg-gray-50:hover { background-color: rgb(var(--sunken)); }
+.dark .hover\:border-gray-300:hover { border-color: rgb(var(--line-strong)); }
+.dark .hover\:shadow-md:hover { box-shadow: 0 6px 18px rgb(0 0 0 / 0.35); }
+.dark .shadow-lg { box-shadow: 0 8px 24px rgb(0 0 0 / 0.4); }
+
+/* hard-coded blue / green / red solid buttons */
+.dark .bg-blue-600.text-white:disabled { color: rgb(var(--disabled)); }
+.dark .bg-green-600.text-white:not(:disabled) { background-color: rgb(var(--success)); color: rgb(var(--bg)); }
+.dark .bg-green-600.text-white:not(:disabled):hover { background-color: rgb(var(--success) / 0.85); }
+.dark .bg-danger.text-white, .dark .bg-red-500.text-white, .dark .bg-red-600.text-white { color: rgb(var(--bg)); }
+.dark .bg-red-500 { background-color: rgb(var(--danger)); }
+.dark .hover\:bg-red-600:hover { background-color: rgb(var(--danger) / 0.85); }
+.dark .bg-green-500 { background-color: rgb(var(--success)); }
+.dark .bg-yellow-500 { background-color: rgb(var(--warning)); }
+
+/* hard-coded status tints (alerts, pills) → muted semantic tints */
+.dark .bg-red-50 { background-color: rgb(var(--danger) / 0.12); }
+.dark .bg-red-100 { background-color: rgb(var(--danger) / 0.18); }
+.dark .border-red-200 { border-color: rgb(var(--danger) / 0.35); }
+.dark .text-red-600, .dark .text-red-700, .dark .text-red-800, .dark .text-red-900, .dark .hover\:text-red-700:hover { color: rgb(var(--danger)); }
+.dark .bg-green-50 { background-color: rgb(var(--success) / 0.12); }
+.dark .bg-green-100 { background-color: rgb(var(--success) / 0.18); }
+.dark .text-green-600, .dark .text-green-700 { color: rgb(var(--success)); }
+.dark .bg-yellow-50, .dark .bg-orange-50 { background-color: rgb(var(--warning) / 0.12); }
+.dark .bg-yellow-100 { background-color: rgb(var(--warning) / 0.18); }
+.dark .text-yellow-600, .dark .text-yellow-700, .dark .text-orange-600 { color: rgb(var(--warning)); }
+.dark .bg-purple-50 { background-color: rgb(var(--primary) / 0.12); }
+.dark .bg-purple-100 { background-color: rgb(var(--primary) / 0.2); }
+.dark .text-purple-700 { color: rgb(var(--violet-light)); }
+.dark .text-slate-500, .dark .text-slate-600 { color: rgb(var(--muted)); }
+
+/* maps (Leaflet) */
+.dark .leaflet-container { background: rgb(var(--bg-2)); font-family: inherit; }
+.dark .leaflet-popup-content-wrapper, .dark .leaflet-popup-tip {
+  background: rgb(var(--elevated)); color: rgb(var(--fg)); border: 1px solid rgb(var(--line-strong));
+}
+.dark .leaflet-popup-content a.bg-slate-900 { background-color: rgb(var(--primary)); color: #fff; }
+.dark .leaflet-popup-content a.bg-slate-900:hover { background-color: rgb(var(--primary-hover)); }
+.dark .leaflet-bar a, .dark .leaflet-bar a:hover {
+  background-color: rgb(var(--surface)); color: rgb(var(--fg)); border-bottom-color: rgb(var(--line));
+}
+.dark .leaflet-bar a:hover { background-color: rgb(var(--sunken)); }
+.dark .leaflet-control-attribution { background: rgb(var(--bg) / 0.8) !important; color: rgb(var(--muted-2)); }
+.dark .leaflet-control-attribution a { color: rgb(var(--violet-light)); }
+
+/* charts (Recharts) */
+.dark .recharts-default-tooltip {
+  background-color: rgb(var(--elevated)) !important; border: 1px solid rgb(var(--line-strong)) !important; border-radius: 6px;
+}
+.dark .recharts-tooltip-label, .dark .recharts-tooltip-item { color: rgb(var(--fg)) !important; }
+.dark .recharts-legend-item-text { color: rgb(var(--muted)) !important; }
+.dark .recharts-cartesian-axis-tick-value { fill: rgb(var(--muted-2)); }
+.dark .recharts-cartesian-axis-line, .dark .recharts-cartesian-axis-tick-line { stroke: rgb(var(--line-strong)); }
+.dark .recharts-cursor { fill: rgb(var(--sunken) / 0.4); }
 
 @media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
